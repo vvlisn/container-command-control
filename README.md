@@ -35,27 +35,48 @@ The policy is organized into several key files:
 ## Examples
 
 ### Default Deny Configuration
-```yaml
+```bash
+kubectl apply -f - <<EOF
 apiVersion: policies.kubewarden.io/v1
 kind: ClusterAdmissionPolicy
 metadata:
   name: deny-command-args
 spec:
   module: registry://ghcr.io/vvlisn/policies/deny-command-args:latest
+  rules:
+  - apiGroups: ["apps"]
+    apiVersions: ["v1"]
+    resources: ["deployments"]
+    operations:
+    - CREATE
+  mutating: false
   settings:
-    allow_args_and_command: false  # This is the default
+    allow_args_and_command: false
+EOF
 ```
 
+
+
+
 ### Allow Configuration
-```yaml
+```bash
+kubectl apply -f - <<EOF
 apiVersion: policies.kubewarden.io/v1
 kind: ClusterAdmissionPolicy
 metadata:
   name: deny-command-args
 spec:
   module: registry://ghcr.io/vvlisn/policies/deny-command-args:latest
+  rules:
+  - apiGroups: ["apps"]
+    apiVersions: ["v1"]
+    resources: ["deployments"]
+    operations:
+    - CREATE
+  mutating: false
   settings:
     allow_args_and_command: true
+EOF
 ```
 
 ## Implementation details
