@@ -1,5 +1,3 @@
 {
-  "denied_names": [
-    "tls-example-ingress"
-  ]
+  "allow_args_and_command": false
 }
