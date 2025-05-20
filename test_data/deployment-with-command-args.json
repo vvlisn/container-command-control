@@ -1,0 +1,52 @@
+{
+    "uid": "test-with-command-args",
+    "resource": {
+        "group": "apps",
+        "version": "v1",
+        "resource": "deployments"
+    },
+    "kind": {
+        "group": "apps",
+        "kind": "Deployment",
+        "version": "v1"
+    },
+    "userInfo": {
+        "username": "kubernetes-admin",
+        "groups": ["system:masters", "system:authenticated"]
+    },
+    "name": "test-deployment-with-command-args",
+    "namespace": "default",
+    "operation": "CREATE",
+    "object": {
+        "apiVersion": "apps/v1",
+        "kind": "Deployment",
+        "metadata": {
+            "name": "test-deployment-with-command-args",
+            "namespace": "default"
+        },
+        "spec": {
+            "selector": {
+                "matchLabels": {
+                    "app": "test-app"
+                }
+            },
+            "template": {
+                "metadata": {
+                    "labels": {
+                        "app": "test-app"
+                    }
+                },
+                "spec": {
+                    "containers": [
+                        {
+                            "name": "nginx",
+                            "image": "nginx:latest",
+                            "command": ["/bin/sh"],
+                            "args": ["-c", "nginx -g 'daemon off;'"]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
