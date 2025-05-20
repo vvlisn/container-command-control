@@ -1,4 +1,4 @@
-module github.com/kubewarden/deny-command-args
+module github.com/kubewarden/container-command-control
 
 go 1.22
 

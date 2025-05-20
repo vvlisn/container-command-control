@@ -1,8 +1,8 @@
 [![Stable](https://img.shields.io/badge/status-stable-brightgreen?style=for-the-badge)](https://github.com/kubewarden/community/blob/main/REPOSITORIES.md#stable)
 
-# deny-command-args
+# container-command-control
 
-A Kubewarden policy that controls the use of container `args` and `command` fields in Kubernetes Deployments.
+A Kubewarden policy that provides fine-grained control over container `args` and `command` fields in Kubernetes Deployments.
 
 ## Introduction
 
